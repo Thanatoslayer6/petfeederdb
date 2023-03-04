@@ -15,7 +15,15 @@ exports.getScheduleById = async (id) => {
 exports.getScheduleByClientName = async(clientName) => {
   return await ScheduleModel.find({ client: clientName });
 }
- 
+
+exports.addScheduleItemByClientName = async(clientName, newItem) => {
+  return await ScheduleModel.findOneAndUpdate(
+    { client: clientName }, 
+    { $push: { items: newItem }},
+    { new: true }
+  )
+}
+
 exports.updateSchedule = async (id, schedule) => {
   return await ScheduleModel.findByIdAndUpdate(id, schedule);
 };

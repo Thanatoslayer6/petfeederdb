@@ -37,6 +37,17 @@ exports.getScheduleByClientName = async (req, res) => {
   }
 };
 
+exports.addScheduleItemByClientName = async (req, res) => {
+  try {
+    const schedule = await scheduleService.addScheduleItemByClientName(req.params.name, req.body);
+    res.json({ data: schedule, status: "success" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+
+
 exports.updateSchedule = async (req, res) => {
   try {
     const schedule = await scheduleService.updateSchedule(req.params.id, req.body);
