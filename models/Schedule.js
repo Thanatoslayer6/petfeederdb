@@ -8,9 +8,10 @@ const feedDurationLimit = (val) => {
     return (val >= 1 && val <= 10);
 }
 
-const scheduleSchema = new mongoose.Schema({
-    client: { type: String, required: true },
-    activeTime: { type: Date, required: true },
+const itemSchedule = new mongoose.Schema({
+    hour: { type: Number, required: true },
+    minute: { type: Number, required: true },
+    enabled: {type: Boolean, required: true},
     weekDay: { 
         // This is an array with a length of 7 indicating when the schedule is active (Monday = 0, Sunday = 6)
         type: [Boolean], 
@@ -21,7 +22,12 @@ const scheduleSchema = new mongoose.Schema({
         type: Number, 
         required: true,
         validate: [feedDurationLimit, 'feedDuration must be between 1 and 10']
-    },
+    }
+})
+
+const scheduleSchema = new mongoose.Schema({
+    client: { type: String, required: true },
+    items: [itemSchedule]
 });
 
 
