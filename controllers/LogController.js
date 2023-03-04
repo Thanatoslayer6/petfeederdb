@@ -27,6 +27,15 @@ exports.getLogById = async (req, res) => {
   }
 };
 
+exports.getLogByClientName = async (req, res) => {
+  try {
+    const log = await logService.getLogByClientName(req.params.name);
+    res.json({ data: log, status: "success" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+}
+
 exports.updateLog = async (req, res) => {
   try {
     const log = await logService.updateLog(req.params.id, req.body);

@@ -27,6 +27,16 @@ exports.getScheduleById = async (req, res) => {
   }
 };
 
+
+exports.getScheduleByClientName = async (req, res) => {
+  try {
+    const schedule = await scheduleService.getScheduleById(req.params.name);
+    res.json({ data: schedule, status: "success" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
 exports.updateSchedule = async (req, res) => {
   try {
     const schedule = await scheduleService.updateSchedule(req.params.id, req.body);

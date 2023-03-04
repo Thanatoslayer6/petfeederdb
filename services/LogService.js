@@ -10,6 +10,10 @@ exports.createLog = async (log) => {
 exports.getLogById = async (id) => {
   return await LogModel.findById(id);
 };
+
+exports.getLogByClientName = async (clientName) => {
+  return await LogModel.find({ client: clientName });
+}
  
 exports.updateLog = async (id, log) => {
   return await LogModel.findByIdAndUpdate(id, log);
