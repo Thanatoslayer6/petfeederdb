@@ -3,7 +3,7 @@ const axios = require('axios');
 ;(async() => {
     // SCHEDULE
     // let response2 = await axios.post("https://petfeederdb-production.up.railway.app/api/schedule", {
-    //     client: "John Doe 20",
+    //     client: "John",
     //     items: [ {
     //         hour: 23,
     //         minute: 4,
@@ -27,26 +27,26 @@ const axios = require('axios');
     // console.log(response2.data)
 
     // LOGS
-    // let response = await axios.post("http://localhost:3000/api/logs", {
-    //     client: "John Doe",
-    //     items: [ {
-    //         type: "Feed Log",
-    //         didFail: true,
-    //         duration: 32
-    //         // dateFinished
-    //     }, {
-    //         type: "UV-Light Log",
-    //         didFail: false,
-    //         duration: 5
-    //         // dateFinished
-    //     }, {
-    //         type: "UV-Light Log",
-    //         didFail: true,
-    //         duration: 50
-    //         // dateFinished
-    //     }]
-    // })
-    // console.log(response.data);
-    let response3 = await axios.get("https://petfeederdb-production.up.railway.app/api/schedule/client/John Doe")
+    let response = await axios.post("https://petfeederdb-production.up.railway.app/api/logs", {
+        client: "Johndouh",
+        items: [ {
+            type: "Feed Log",
+            didFail: true,
+            duration: 32
+            // dateFinished
+        }, {
+            type: "UV-Light Log",
+            didFail: false,
+            duration: 5
+            // dateFinished
+        }, {
+            type: "UV-Light Log",
+            didFail: true,
+            duration: 50
+            // dateFinished
+        }]
+    })
+    console.log(response.data);
+    let response3 = await axios.get("https://petfeederdb-production.up.railway.app/api/logs/client/John Doe");
     console.log(response3.data);
 })();
