@@ -20,6 +20,6 @@ app.use(bodyParser.json());
 app.use("/api/logs", logRouter);
 app.use("/api/schedule", scheduleRouter);
 
-app.listen(3000, () => {
-   console.log("Server started at port 3000\n /api/logs - History logs\n /api/schedule - Schedule");
+app.listen(process.env.PORT || 3000, () => {
+   console.log(`Server started at port ${process.env.PORT}\n /api/logs - History logs\n /api/schedule - Schedule`);
 });
