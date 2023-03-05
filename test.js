@@ -1,14 +1,17 @@
 const axios = require('axios');
-
+// let item = Date.now();
+console.log(Date.now());
+/*
 ;(async() => {
+    // console.log(Date.now());
     // SCHEDULE
     // let response2 = await axios.post("https://petfeederdb-production.up.railway.app/api/schedule", {
     //     client: "beta12345",
     //     items: [ {
     //         hour: 23,
     //         minute: 4,
-    //         enabled: false,
     //         weekDay: [true, true, false, false, true, true, true],
+    //         enabled: false,
     //         feedDuration: 7
     //     }, {
     //         hour: 12,
@@ -27,26 +30,26 @@ const axios = require('axios');
     // console.log(response2.data)
 
     // LOGS
-    // let response = await axios.post("https://petfeederdb-production.up.railway.app/api/logs", {
-    //     client: "Johndouh",
-    //     items: [ {
-    //         type: "Feed Log",
-    //         didFail: true,
-    //         duration: 32
-    //         // dateFinished
-    //     }, {
-    //         type: "UV-Light Log",
-    //         didFail: false,
-    //         duration: 5
-    //         // dateFinished
-    //     }, {
-    //         type: "UV-Light Log",
-    //         didFail: true,
-    //         duration: 50
-    //         // dateFinished
-    //     }]
-    // })
-    // console.log(response.data);
+    let response = await axios.post("http://localhost:5500/api/logs", {
+        client: "michael_gira",
+        items: [ {
+            type: "Feed Log",
+            didFail: true,
+            duration: 32,
+            dateFinished: Date.now() 
+        }, {
+            type: "UV-Light Log",
+            didFail: false,
+            duration: 5,
+            dateFinished: Date.now()
+        }, {
+            type: "UV-Light Log",
+            didFail: true,
+            duration: 50,
+            dateFinished: Date.now()
+        }]
+    })
+    console.log(response.data);
     // let response3 = await axios.get("https://petfeederdb-production.up.railway.app/api/schedule/client/beta12345");
     // console.log(response3.data);
     
@@ -60,3 +63,4 @@ const axios = require('axios');
     // })
     // console.log(response4.data)
 })();
+*/
