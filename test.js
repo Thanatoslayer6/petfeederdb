@@ -47,11 +47,11 @@ const axios = require('axios');
     //     }]
     // })
     // console.log(response.data);
-    // let response3 = await axios.get("https://petfeederdb-production.up.railway.app/api/logs/client/John Doe");
+    // let response3 = await axios.get("https://petfeederdb-production.up.railway.app/api/schedule/client/beta12345");
     // console.log(response3.data);
     
     // WORKS
-    // let response4 = await axios.post("http://localhost:5500/api/schedule/client/beta12345", {
+    // let response4 = await axios.post("https://petfeederdb-production.up.railway.app/api/schedule/client/beta12345", {
     //     hour: 5,
     //     minute: 25,
     //     enabled: true,

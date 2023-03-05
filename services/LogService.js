@@ -14,6 +14,14 @@ exports.getLogById = async (id) => {
 exports.getLogByClientName = async (clientName) => {
   return await LogModel.find({ client: clientName });
 }
+
+exports.addLogItemByClientName = async(clientName, newItem) => {
+  return await LogModel.findOneAndUpdate(
+    { client: clientName }, 
+    { $push: { items: newItem }},
+    { new: true }
+  )
+}
  
 exports.updateLog = async (id, log) => {
   return await LogModel.findByIdAndUpdate(id, log);
