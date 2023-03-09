@@ -5,8 +5,15 @@ exports.getEntireLog = async () => {
 };
  
 exports.createLog = async (log) => {
+  const existingDoc = await LogModel.findOne({ client: log.client });
+  // check if document with client already exists, if it exists then just return it
+  if (existingDoc) {
+    return existingDoc
+  }
+
   return await LogModel.create(log);
 };
+
 exports.getLogById = async (id) => {
   return await LogModel.findById(id);
 };

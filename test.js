@@ -1,7 +1,7 @@
 const axios = require('axios');
 // let item = Date.now();
-console.log(Date.now());
-/*
+
+
 ;(async() => {
     // console.log(Date.now());
     // SCHEDULE
@@ -28,28 +28,25 @@ console.log(Date.now());
     //     }]
     // })
     // console.log(response2.data)
-
+    let response1 = await axios.post("http://localhost:5500/api/schedule", {
+        client: "Jonny",
+        items: []
+    })
+    console.log(response1.data);
     // LOGS
-    let response = await axios.post("http://localhost:5500/api/logs", {
-        client: "michael_gira",
-        items: [ {
-            type: "Feed Log",
-            didFail: true,
-            duration: 32,
-            dateFinished: Date.now() 
-        }, {
-            type: "UV-Light Log",
-            didFail: false,
-            duration: 5,
-            dateFinished: Date.now()
-        }, {
-            type: "UV-Light Log",
-            didFail: true,
-            duration: 50,
-            dateFinished: Date.now()
-        }]
+    /*
+    let response = await axios.post("http://localhost:5500/api/logs/client/jonny", {
+        type: "Mosfet-1", // Feed or UV log
+        didFail: true,
+        duration: 200,
+        dateFinished: "Ts heknife"
+        // type: { type: String, required: true }, // Feed or UV log
+        // didFail: { type: Boolean, required: true },
+        // duration: { type: Number, required: true },
+        // dateFinished: { type: String, required: true }
     })
     console.log(response.data);
+    */
     // let response3 = await axios.get("https://petfeederdb-production.up.railway.app/api/schedule/client/beta12345");
     // console.log(response3.data);
     
@@ -63,4 +60,3 @@ console.log(Date.now());
     // })
     // console.log(response4.data)
 })();
-*/

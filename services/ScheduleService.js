@@ -5,6 +5,11 @@ exports.getEntireSchedule = async () => {
 };
  
 exports.createSchedule = async (schedule) => {
+  const existingDoc = await ScheduleModel.findOne({ client: schedule.client });
+  // check if document with client already exists
+  if (existingDoc) {
+    return existingDoc
+  }
   return await ScheduleModel.create(schedule);
 };
 
