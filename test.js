@@ -10,11 +10,12 @@ async function uploadMP3File(filePath) {
     // add the file to be uploaded to the form
     formData.append('mp3', fs.createReadStream(filePath));
     // make a POST request to the server
-    const response = await axios.post('http://localhost:5500/upload', formData, {
+    const response = await axios.post('http://localhost:5500/api/storage/upload', formData, {
+    // const response = await axios.post('https://petfeederdb-production.up.railway.app/api/storage/upload', formData, {
         headers: formData.getHeaders()
     });
     
-    // console.log(response);
+    console.log(response);
     console.log('File uploaded successfully!');
   } catch (error) {
     console.error(`File upload failed with error: ${error}`);
@@ -22,7 +23,7 @@ async function uploadMP3File(filePath) {
 }
 
 ;(async() => {
-    // await uploadMP3File('Example.mp3');
+    await uploadMP3File('/home/loti/Documents/localtest/music/jopay.mp3');
     // console.log(Date.now());
     // SCHEDULE
     // let response2 = await axios.post("https://petfeederdb-production.up.railway.app/api/schedule", {
