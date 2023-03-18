@@ -1,6 +1,6 @@
 # Petfeederdb
 
-CRUD API for CleverFeeder's database, for more information please refer to the following endpoints.
+CRUD API (Express) for CleverFeeder's database (MongoDB), for more information please refer to the following endpoints.
 
 #### Endpoints:
 
@@ -28,3 +28,20 @@ CRUD API for CleverFeeder's database, for more information please refer to the f
   - **GET '/'** - Grabs all of the stored files in the server (returns json, location is *'audio/'* for all files)
   - **POST '/upload/:name?'** - Uploads a file to the server (passed parameter is optional for filename)
   - **DELETE '/delete/:name'** - Deletes a file stored in the server (required to pass filename)
+
+#### Setting Up
+
+1.) Install the dependencies via `npm install`
+
+2.) Create a `.env` file at the project's root
+
+```toml
+MONGODB_URI="Insert your MongoDB URI here..."
+PORT=5500
+```
+
+3.) Run the server `node index.js`
+
+```
+
+```
