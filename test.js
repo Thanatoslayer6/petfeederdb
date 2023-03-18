@@ -1,8 +1,28 @@
 const axios = require('axios');
-// let item = Date.now();
+const fs = require('fs');
+const FormData = require('form-data');
 
+async function uploadMP3File(filePath) {
+  try {
+    // create a FormData object
+    const formData = new FormData();
+    
+    // add the file to be uploaded to the form
+    formData.append('mp3', fs.createReadStream(filePath));
+    // make a POST request to the server
+    const response = await axios.post('http://localhost:5500/upload', formData, {
+        headers: formData.getHeaders()
+    });
+    
+    // console.log(response);
+    console.log('File uploaded successfully!');
+  } catch (error) {
+    console.error(`File upload failed with error: ${error}`);
+  }
+}
 
 ;(async() => {
+    // await uploadMP3File('Example.mp3');
     // console.log(Date.now());
     // SCHEDULE
     // let response2 = await axios.post("https://petfeederdb-production.up.railway.app/api/schedule", {
@@ -28,11 +48,11 @@ const axios = require('axios');
     //     }]
     // })
     // console.log(response2.data)
-    let response1 = await axios.post("http://localhost:5500/api/schedule", {
-        client: "Jonny",
-        items: []
-    })
-    console.log(response1.data);
+    // let response1 = await axios.post("http://localhost:5500/api/schedule", {
+    //     client: "Jonny",
+    //     items: []
+    // })
+    // console.log(response1.data);
     // LOGS
     /*
     let response = await axios.post("http://localhost:5500/api/logs/client/jonny", {
